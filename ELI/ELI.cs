@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace ELI
 {
-    public class ELI
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    [ComSourceInterfaces(typeof(MyEvents))]
+    [ProgId("ELI.WebServiceShell")]
+    public class WebServiceShell
     {
         /// <summary>
-        /// test description
+        /// GetPersons form web service
         /// </summary>
-        /// <returns>test retrun</returns>
-        public List<string> GetPersons()
+        /// <returns>retrun list of persons</returns>
+        public List<string> GetPendingReferral()
         {
             List<string> result = new List<string>();
 
@@ -24,13 +25,23 @@ namespace ELI
         }
 
         /// <summary>
-        /// 2222222 
+        /// SendExaminationResults to the web service 
         /// </summary>
-        /// <param name="data"> dasat 2222</param>
-        /// <returns>sdsdfgsd ret</returns>
-        public Boolean SendSomeData(string data)
+        /// <param name="data">data if examination results</param>
+        /// <returns>true or false depends on succed</returns>
+        public Boolean SendExaminationResults(string data)
         {
             return true;
         }
+    }
+
+    [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
+    public interface MyEvents
+    {
+        //the comm interface for the eventhandler IsCompleted
+        //On the client (VFP) side we use the command EVENTHANDLER and the
+        //pubblic OLE class MyEvents to comunicate with the COM generated from this class
+        [DispId(1)]
+        void IsCompleted(object source, string respStr, bool icComplete);
     }
 }
