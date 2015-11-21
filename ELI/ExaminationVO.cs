@@ -2,8 +2,10 @@
 
 namespace ELI
 {
+    /// <summary>
+    /// ExaminationVO
+    /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.ExaminationVO")]
     public class ExaminationVO
     {

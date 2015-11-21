@@ -6,7 +6,6 @@ namespace ELI
     /// obiekt identyfikator pacjenta
     /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.PatientIdVO")]
     public class PatientIdVO
     {

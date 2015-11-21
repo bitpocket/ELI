@@ -1,8 +1,8 @@
-﻿using System.Runtime.InteropServices;
-
-namespace ELI
+﻿namespace ELI
 {
-    [ComVisible(true)]
+    /// <summary>
+    /// IdType
+    /// </summary>
     public enum IdType
     {
         /// <summary>

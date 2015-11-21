@@ -6,7 +6,6 @@ namespace ELI
     /// obiekt przechowuje dane o pojedynczym zleceniu danego pacjenta
     /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.PatientWithOrderListVO")]
     public class PatientWithOrderListVO
     {

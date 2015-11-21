@@ -2,8 +2,10 @@
 
 namespace ELI
 {
+    /// <summary>
+    /// ContractorVO
+    /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.ContractorVO")]
     public class ContractorVO
     {

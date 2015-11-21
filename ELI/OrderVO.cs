@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace ELI
@@ -8,7 +7,6 @@ namespace ELI
     /// obiekt przechowuje dane o zleceniu
     /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.OrderVO")]
     public class OrderVO
     {

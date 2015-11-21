@@ -6,7 +6,6 @@ namespace ELI
     /// obiekt przechowuje dane adresowe
     /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.AddressVO")]
     public class AddressVO
     {

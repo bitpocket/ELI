@@ -24,6 +24,7 @@
     <RegisterForComInterop>true</RegisterForComInterop>
     <DocumentationFile>
     </DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <DocumentationFile>bin\Release\ELI.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +50,7 @@
     <Compile Include="Gender.cs" />
     <Compile Include="IdType.cs" />
     <Compile Include="ELI.cs" />
+    <Compile Include="IWebServiceShell.cs" />
     <Compile Include="OrderVO.cs" />
     <Compile Include="PatientIdVO.cs" />
     <Compile Include="PatientVO.cs" />

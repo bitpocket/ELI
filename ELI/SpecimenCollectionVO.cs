@@ -2,8 +2,10 @@
 
 namespace ELI
 {
+    /// <summary>
+    ///SpecimenCollectionVO
+    /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.SpecimenCollectionVO")]
     public class SpecimenCollectionVO
     {

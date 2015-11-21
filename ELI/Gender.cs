@@ -1,8 +1,8 @@
-﻿using System.Runtime.InteropServices;
-
-namespace ELI
+﻿namespace ELI
 {
-    [ComVisible(true)]
+    /// <summary>
+    /// Gender
+    /// </summary>
     public enum Gender
     {
         /// <summary>

@@ -2,8 +2,10 @@
 
 namespace ELI
 {
+    /// <summary>
+    /// DoctorVO
+    /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ComVisible(true)]
     [ProgId("ELI.DoctorVO")]
     public class DoctorVO
     {
