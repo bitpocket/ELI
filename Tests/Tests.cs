@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ELI;
 
 namespace Tests
 {
@@ -7,8 +7,17 @@ namespace Tests
     public class Tests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetTest()
         {
+            WebServiceShell ws = new WebServiceShell();
+
+            PatientIdVO p = new PatientIdVO()
+            {
+                type = ELI.IdType.PESEL,
+                Value = "1234567890"
+            };
+
+            PatientWithOrderListVO res = ws.getPatientWithOrderListBy(p);
         }
     }
 }
