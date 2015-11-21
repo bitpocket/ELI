@@ -1,8 +1,13 @@
-﻿namespace ELI
+﻿using System.Runtime.InteropServices;
+
+namespace ELI
 {
     /// <summary>
     /// obiekt identyfikator pacjenta
     /// </summary>
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    [ComVisible(true)]
+    [ProgId("ELI.PatientIdVO")]
     public class PatientIdVO
     {
         /// <summary>

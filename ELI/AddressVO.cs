@@ -1,8 +1,13 @@
-﻿namespace ELI
+﻿using System.Runtime.InteropServices;
+
+namespace ELI
 {
     /// <summary>
     /// obiekt przechowuje dane adresowe
     /// </summary>
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    [ComVisible(true)]
+    [ProgId("ELI.AddressVO")]
     public class AddressVO
     {
         /// <summary>

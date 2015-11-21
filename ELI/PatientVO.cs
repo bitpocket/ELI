@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace ELI
 {
     /// <summary>
     /// obiekt przechowuje dane o pacjencie
     /// </summary>
+    [ClassInterface(ClassInterfaceType.AutoDual)]
+    [ComVisible(true)]
+    [ProgId("ELI.PatientVO")]
     public class PatientVO
     {
         /// <summary>

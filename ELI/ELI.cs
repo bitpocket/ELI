@@ -5,9 +5,8 @@ using System.Runtime.InteropServices;
 namespace ELI
 {
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [Guid("737C975F-C910-45E5-89B3-2A53991FB0F2")]
     [ComVisible(true)]
-    [ProgId("ELI.SomeClass")]
+    [ProgId("ELI.WebServiceShell")]
     public class WebServiceShell
     {
 
@@ -17,7 +16,7 @@ namespace ELI
         /// <returns>Identyfikator laboratorium w systemie Erlab</returns>
         public string getLabId()
         {
-            return "test web service";
+            return "test lab id";
         }
 
         /// <summary>
@@ -29,22 +28,35 @@ namespace ELI
         {
             PatientWithOrderListVO res = new PatientWithOrderListVO();
 
-            res.orders = new List<OrderVO>();
-
-            res.orders.Add(
+            res.orders = new OrderVO[] {
                 new OrderVO()
                 {
                     contractor = new ContractorVO() { },
                     doctor = new DoctorVO() { },
-                    examination = new List<ExaminationVO>()
+                    examination = new ExaminationVO[]
                     {
                         new ExaminationVO() { }
                     },
-                    id = "test id",
+                    id = "test id 1",
                     orderTime = DateTime.Now,
-                    specimenCollection =  new SpecimenCollectionVO() { },
-                    valuableClinicInfo = "testowe dane kliniczne"                    
-                });
+                    specimenCollection = new SpecimenCollectionVO() { },
+                    valuableClinicInfo = "test klinc data 1"
+                },
+
+                new OrderVO()
+                {
+                    contractor = new ContractorVO() { },
+                    doctor = new DoctorVO() { },
+                    examination = new ExaminationVO[]
+                    {
+                        new ExaminationVO() { }
+                    },
+                    id = "test id 2",
+                    orderTime = DateTime.Now,
+                    specimenCollection = new SpecimenCollectionVO() { },
+                    valuableClinicInfo = "test klinc data 2"
+                }
+            };
 
             return res;
         }
