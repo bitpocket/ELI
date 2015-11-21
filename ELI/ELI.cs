@@ -15,6 +15,7 @@ namespace ELI
         /// L pobiera swój identyfikator w Erlab. Jest to metoda testowa i powinna być wykorzystywana do początkowego testowania komunikacji za pomocą Web Serviców
         /// </summary>
         /// <returns>Identyfikator laboratorium w systemie Erlab</returns>
+        //[ClassInterface(ClassInterfaceType.AutoDual)]
         public string getLabId()
         {
             return "test lab id";
