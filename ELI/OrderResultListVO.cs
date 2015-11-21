@@ -35,6 +35,11 @@ namespace ELI
         /// <param name="order"></param>
         public void addOrdersResult(OrderResultVO order)
         {
+            if (order.contractorVO == null)
+            {
+                throw new System.Exception("OrderResultVO.contractorVO should not be null");
+            }
+
             _ordersResults.Add(order);
             ordersResults = _ordersResults.ToArray();
         }
