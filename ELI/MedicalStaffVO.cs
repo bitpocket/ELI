@@ -3,11 +3,11 @@
 namespace ELI
 {
     /// <summary>
-    /// obiekt przechowuje dane o lekarzu
+    /// obiekt przechowuje dane o osobie personelu medycznego
     /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
-    [ProgId("ELI.DoctorVO")]
-    public class DoctorVO
+    [ProgId("ELI.MedicalStaffVO")]
+    public class MedicalStaffVO
     {
         /// <summary>
         /// imię
@@ -28,14 +28,15 @@ namespace ELI
         public string surname;
 
         /// <summary>
-        /// Numer prawa wykonywania zawodu. 
-        /// 7 cyfr
+        /// numer prawa wykonywania zawodu. 
+        /// dla lekarza 7 cyfr. 
+        /// dla pielęgniarki: 7 cyfr lub 7 cyfr + 1 litera A lub P
         /// </summary>
         public string pzw;
 
         /// <summary>
-        /// Zbiór specjalizacji jakie posiada dany lekarz
+        /// zawód
         /// </summary>
-        public SpecializationVO[] specializations;
+        public ProfessionType type;
     }
 }

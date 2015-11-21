@@ -68,17 +68,26 @@
     <Compile Include="AddressVO.cs" />
     <Compile Include="ContractorVO.cs" />
     <Compile Include="DoctorVO.cs" />
+    <Compile Include="ExaminationResultParameterVO.cs" />
+    <Compile Include="ExaminationResultVO.cs" />
     <Compile Include="ExaminationVO.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="IdType.cs" />
     <Compile Include="ELI.cs" />
-    <Compile Include="IWebServiceShell.cs" />
+    <Compile Include="MedicalStaffVO.cs" />
+    <Compile Include="OrderResultListVO.cs" />
+    <Compile Include="OrderResultVO.cs" />
     <Compile Include="OrderVO.cs" />
     <Compile Include="PatientIdVO.cs" />
     <Compile Include="PatientVO.cs" />
     <Compile Include="PatientWithOrderListVO.cs" />
+    <Compile Include="PriorytetType.cs" />
+    <Compile Include="ProfessionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultDocumentVO.cs" />
+    <Compile Include="SpecializationVO.cs" />
     <Compile Include="SpecimenCollectionVO.cs" />
+    <Compile Include="StatusType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
