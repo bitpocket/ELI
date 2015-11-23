@@ -1,0 +1,685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ELI</name>
+    </assembly>
+    <members>
+        <member name="T:ELI.AddressVO">
+            <summary>
+            obiekt przechowuje dane adresowe
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.street">
+            <summary>
+            nazwa ulicy
+            Maksymalnie 80 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.postcode">
+            <summary>
+            kod pocztowy
+            Format: xx-xxx
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.city">
+            <summary>
+            miasto
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.codeTeryt">
+            <summary>
+            Kod terytorialny
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.houseNumber">
+            <summary>
+            nr domu
+            Maksymalnie 5 cyfr/znaków
+            </summary>
+        </member>
+        <member name="F:ELI.AddressVO.apartamentNumber">
+            <summary>
+            nr mieszkania
+            Maksymalnie 5 cyfr/znaków
+            </summary>
+        </member>
+        <member name="T:ELI.ContractorVO">
+            <summary>
+            obiekt przechowuje dane o kontrahencie
+            </summary>
+        </member>
+        <member name="F:ELI.ContractorVO.regon">
+            <summary>
+            regon
+            9 lub 14 cyfr, suma kontrolna
+            </summary>
+        </member>
+        <member name="F:ELI.ContractorVO.address">
+            <summary>
+            Adres kontrahenta
+            </summary>
+        </member>
+        <member name="F:ELI.ContractorVO.name">
+            <summary>
+            Nazwa kontrahenta
+            Maksymalnie 200 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ContractorVO.institutionId">
+            <summary>
+            Unikatlny numer kontrahenta
+            W przypadku HCI - zgodnie z kodem świadczeniodawcy. Lab - ciąg downolnych znaków MAX 100 
+            </summary>
+        </member>
+        <member name="T:ELI.DoctorVO">
+            <summary>
+            obiekt przechowuje dane o lekarzu
+            </summary>
+        </member>
+        <member name="F:ELI.DoctorVO.firstName">
+            <summary>
+            imię
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.DoctorVO.secondName">
+            <summary>
+            drugie imię
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.DoctorVO.surname">
+            <summary>
+            nazwisko
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.DoctorVO.pzw">
+            <summary>
+            Numer prawa wykonywania zawodu. 
+            7 cyfr
+            </summary>
+        </member>
+        <member name="F:ELI.DoctorVO.specializations">
+            <summary>
+            Zbiór specjalizacji jakie posiada dany lekarz
+            </summary>
+        </member>
+        <member name="T:ELI.ExaminationResultParameterVO">
+            <summary>
+            obiekt przechowuje dane o wyniku badania
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.result">
+            <summary>
+            Opis wyników badania. 
+            Może zawierać liczbę lub po prostu napis(POZYTYWNY, W NORMIE etc)
+            Maksymalnie 5000 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.parametrName">
+            <summary>
+            Nazwa parametru wyniku
+            Maksymalnie 150 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.parametrCode">
+            <summary>
+            Kod parametru wyniku 
+            Maksymalnie 20 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.unit">
+            <summary>
+            Jednostka w jakiej wyrażany jest wynik badania
+            Maksymalnie 100 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.normFrom">
+            <summary>
+            Dolna granica normy. 
+            Jest zależna od płci i wieku
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.normTo">
+            <summary>
+            Górna granica normy
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultParameterVO.referenceValues">
+            <summary>
+            Wartości referencyjne dla parametru
+            Maksymalnie 5000 znaków
+            </summary>
+        </member>
+        <member name="T:ELI.ExaminationResultVO">
+            <summary>
+            obiekt przechowuje dane o zleceniu
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.examination">
+            <summary>
+            Informacja o badaniu
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.examinationParameters">
+            <summary>
+            Lista parametrów wyniku badania
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.validationDate">
+            <summary>
+            Data i godzina przeprowadzenia autoryzacji
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.validatorName">
+            <summary>
+            Imię osoby odpowiedzialnej za autoryzację wyniku
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.validatorSurname">
+            <summary>
+            Nazwisko osoby odpowiedzialnej za autoryzację wyniku
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.attainmentTime">
+            <summary>
+            Data i godzina uzyskania badania
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationResultVO.reliableResult">
+            <summary>
+            Flaga czy uzyskano wiarygodny wynik
+            </summary>
+        </member>
+        <member name="T:ELI.ExaminationVO">
+            <summary>
+            obiekt przechowuje dane o badaniu
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationVO.name">
+            <summary>
+            nazwa
+            Maksymalnie 150 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationVO.code">
+            <summary>
+            Kod opisujący dane badanie zgodne ze słownikiem badań systemu Erlab
+            Maksymalnie 10 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationVO.priorytet">
+            <summary>
+            Priorytet badania 
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationVO.rate">
+            <summary>
+            Taryfa badania
+            Maksymalnie 100 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ExaminationVO.specimenCollected">
+            <summary>
+            Flaga czy dostarczono materiał do badania 
+            </summary>
+        </member>
+        <member name="T:ELI.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="F:ELI.Gender.M">
+            <summary>
+            mężczyzna
+            </summary>
+        </member>
+        <member name="F:ELI.Gender.K">
+            <summary>
+            kobieta
+            </summary>
+        </member>
+        <member name="F:ELI.Gender.N">
+            <summary>
+            nieznana
+            </summary>
+        </member>
+        <member name="T:ELI.IdType">
+            <summary>
+            IdType
+            </summary>
+        </member>
+        <member name="F:ELI.IdType.PESEL">
+            <summary>
+            numer 20ESEL pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.IdType.IDENTITY_CARD">
+            <summary>
+            seria i numer dowodu tożsamości
+            </summary>
+        </member>
+        <member name="F:ELI.IdType.MOTHER_PESEL">
+            <summary>
+            nr 20ESEL matki ( w przypadku noworodków)
+            </summary>
+        </member>
+        <member name="F:ELI.IdType.MOTHER_IDENTITY_CARD">
+            <summary>
+            seria i numer tożsamość matki (w przypadku noworodków)
+            </summary>
+        </member>
+        <member name="T:ELI.WebServiceShell">
+            <summary>
+            WebServiceShell
+            </summary>
+        </member>
+        <member name="M:ELI.WebServiceShell.getPatientWithOrderListBy(ELI.PatientIdVO)">
+            <summary>
+            Laboratorium pobiera zlecenia wykonania badań z serwera ErLab 
+            wykorzystując identyfikator pacjenta. 
+            W rezultacie otrzymuje wszystkie niegotowe skierowania danego pacjenta z ostatniego miesiąca. 
+            Skierowania za pomocą tej metody są pobierane wielokrotnie. 
+            </summary>
+            <param name="patientIdVO">Identyfikator pacjenta. Zgodny z opisem PatientIdVO.</param>
+            <returns>zbiór obiektów zleceń</returns>
+        </member>
+        <member name="M:ELI.WebServiceShell.getAllReferrals">
+            <summary>
+            Laboratorium pobiera skierowania dla laboratorium 
+            w zależności od trybu w jakim działa aplikacja. 
+            W trybie centralnym pobrane zostają wszystkie skierowania 
+            które nie są gotowe ( nie mają jeszcze wyników ).
+            W trybie zdecentalizowanym zostają pobrane wszystkie niegotowe skierowania 
+            kierowane do tego laboratorium, które wywołuje metodę.  
+            W obydwu trybach pobierane są skierowania, które zostały dodane nie wcześniej niż 30 dni temu.
+            </summary>
+            <returns>Lista zleceń badań  pogrupowana po pacjencie</returns>
+        </member>
+        <member name="M:ELI.WebServiceShell.getAllNewReferrals">
+            <summary>
+            Metoda działa bardzo podobnie jak metoda getAllReferrals z tą różnicą, 
+            że pobrane skierowania są oznaczane w systemie i nie są ponownie wysyłane do laboratorium.
+            </summary>
+            <returns>Lista zleceń badań  pogrupowana po pacjencie</returns>
+        </member>
+        <member name="M:ELI.WebServiceShell.getLabId">
+            <summary>
+            L pobiera swój identyfikator w Erlab.
+            Jest to metoda testowa i powinna być wykorzystywana 
+            do początkowego testowania komunikacji za pomocą Web Serviców
+            </summary>
+            <returns>Identyfikator laboratorium w systemie Erlab</returns>
+        </member>
+        <member name="M:ELI.WebServiceShell.add(ELI.OrderResultListVO)">
+            <summary>
+            L dodaje wyniki badań. 
+            Możliwe jest wielokrotne dodanie tych samych wyników badań. 
+            W takiej sytuacji istniejące wyniki badań są dodawane do archiwum 
+            ale dalej istnieją w systemie, a nowe wyniki zastępują stare.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ELI.MedicalStaffVO">
+            <summary>
+            obiekt przechowuje dane o osobie personelu medycznego
+            </summary>
+        </member>
+        <member name="F:ELI.MedicalStaffVO.firstName">
+            <summary>
+            imię
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.MedicalStaffVO.secondName">
+            <summary>
+            drugie imię
+            Maksymalnie 30 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.MedicalStaffVO.surname">
+            <summary>
+            nazwisko
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.MedicalStaffVO.pzw">
+            <summary>
+            numer prawa wykonywania zawodu. 
+            dla lekarza 7 cyfr. 
+            dla pielęgniarki: 7 cyfr lub 7 cyfr + 1 litera A lub P
+            </summary>
+        </member>
+        <member name="F:ELI.MedicalStaffVO.type">
+            <summary>
+            zawód
+            </summary>
+        </member>
+        <member name="T:ELI.OrderResultListVO">
+            <summary>
+            obiekt przechowuje wyniki badań danego pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultListVO.patientIdVO">
+            <summary>
+            Obiekt identyfikujący pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultListVO.ordersResults">
+            <summary>
+            Lista wyników badań
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultListVO._ordersResults">
+            <summary>
+            Lista wyników badań
+            </summary>
+        </member>
+        <member name="M:ELI.OrderResultListVO.addOrdersResult(ELI.OrderResultVO)">
+            <summary>
+            dodaj wynik
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="T:ELI.OrderResultVO">
+            <summary>
+            obiekt przechowuje dane o wynikach badań danego zlecenia
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultVO.orderId">
+            <summary>
+            identyfikator zlecenia
+            kod świadczeniodawcylub regon (prywatne placówki) + ‘-’ + kolejny nr zlecenia
+            w placówce  medycznej, maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultVO.contractorVO">
+            <summary>
+            Obiekt zawierający informacje o kontrahencie
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultVO.examinationsResults">
+            <summary>
+            Lista wyników badań
+            Wymagane conajmniej jedno z pól: examinationsResults lub resultDocuments
+            </summary>
+        </member>
+        <member name="F:ELI.OrderResultVO.resultDocuments">
+            <summary>
+            Lista skompresowanych zbiorów plików z wynikami
+            Wymagane  conajmniej jedno z pól: examinationsResults lub resultDocuments
+            </summary>
+        </member>
+        <member name="T:ELI.OrderVO">
+            <summary>
+            obiekt przechowuje dane o zleceniu
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.id">
+            <summary>
+            identyfikator zlecenia
+            kod świadczeniodawcylub regon (prywatne placówki) + ‘-’ + kolejny nr zlecenia w placówce  medycznej, maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.contractor">
+            <summary>
+            kontrahent zlecający badania
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.examination">
+            <summary>
+            Lista badań do wykonania
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.doctor">
+            <summary>
+            Dane lekarza 
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.orderTime">
+            <summary>
+            Data wystawienia zlecenia 
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.valuableClinicInfo">
+            <summary>
+            Dane istotne klinicznie
+            Maksymalnie 500 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.OrderVO.specimenCollection">
+            <summary>
+            Dane o pobraniu próbek
+            </summary>
+        </member>
+        <member name="T:ELI.PatientIdVO">
+            <summary>
+            obiekt identyfikator pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.PatientIdVO.type">
+            <summary>
+            Typ identyfikatora pacjenta.
+            </summary>
+        </member>
+        <member name="F:ELI.PatientIdVO.Value">
+            <summary>
+            Wartość identyfikatora
+            Wartość w/w pola. Zawiera skrót md5 numeru identyfikacyjnego , numer identyfikacyjny przed utworzeniem skrótu nie może zawierać spacji, myślników, itp. (powinny zostać same cyfry i litery)
+            </summary>
+        </member>
+        <member name="T:ELI.PatientVO">
+            <summary>
+            obiekt przechowuje dane o pacjencie
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.firstName">
+            <summary>
+            imię
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.secondName">
+            <summary>
+            drugie imię
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.surname">
+            <summary>
+            nazwisko
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.patientIdVO">
+            <summary>
+            Obiekt identyfikujący pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.birthDate">
+            <summary>
+            data urodzenia
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.gender">
+            <summary>
+            Płeć: M –mężczyzna; K- kobieta; N-nieznana
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.email">
+            <summary>
+            adres e-mail
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.fatherName">
+            <summary>
+            imię ojca
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.address">
+            <summary>
+            adres zam.
+            </summary>
+        </member>
+        <member name="F:ELI.PatientVO.hciPrivateKeyId">
+            <summary>
+            Identyfikator klucza, którym są  zaszyfrowane dane pacjenta
+            </summary>
+        </member>
+        <member name="T:ELI.PatientWithOrderListVO">
+            <summary>
+            obiekt przechowuje dane o pojedynczym zleceniu danego pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.PatientWithOrderListVO.patient">
+            <summary>
+            Obiekt zawierający  dane pacjenta
+            </summary>
+        </member>
+        <member name="F:ELI.PatientWithOrderListVO.orders">
+            <summary>
+            Lista zleceń 
+            </summary>
+        </member>
+        <member name="T:ELI.PriorytetType">
+            <summary>
+            priorytet
+            </summary>
+        </member>
+        <member name="F:ELI.PriorytetType.RUTYNOWE">
+            <summary>
+            RUTYNOWE
+            </summary>
+        </member>
+        <member name="F:ELI.PriorytetType.CITO">
+            <summary>
+            CITO
+            </summary>
+        </member>
+        <member name="T:ELI.ProfessionType">
+            <summary>
+            zawód
+            </summary>
+        </member>
+        <member name="F:ELI.ProfessionType.DOCTOR">
+            <summary>
+            doktor
+            </summary>
+        </member>
+        <member name="F:ELI.ProfessionType.NURSE">
+            <summary>
+            pielęgniarka
+            </summary>
+        </member>
+        <member name="T:ELI.ResultDocumentVO">
+            <summary>
+            obiekt przechowuje informacje o dokumencie i jego zawartość. 
+            Przesłane dokumenty muszą zostać wcześniej dodany do archiwum zip. 
+            Archiwum powinno zostać skompresowane zgodnie z formatem ZIP. 
+            W systemach typu UNIX/LINUX służy do tego komenda zip. 
+            Zawartość pliku powinna być zaszyfrowana za pomocą tej samej metody jak dane pacjenta 
+            z wykorzystaniem tego samego klucza.
+            </summary>
+        </member>
+        <member name="F:ELI.ResultDocumentVO.id">
+            <summary>
+            Unikalny identyfikator dokumentu
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ResultDocumentVO.content">
+            <summary>
+            Zawartość dokumentu (typ Java DataHandler)
+            (w przypadku statusu NEW)
+            </summary>
+        </member>
+        <member name="F:ELI.ResultDocumentVO.status">
+            <summary>
+            Status dokumentu
+            </summary>
+        </member>
+        <member name="F:ELI.ResultDocumentVO.comment">
+            <summary>
+            Komentarz – np. przyczyna unieważnienia
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.ResultDocumentVO.cancelDate">
+            <summary>
+            Data unieważnienia
+            (przypadku statusu CANCELLED)
+            </summary>
+        </member>
+        <member name="T:ELI.SpecializationVO">
+            <summary>
+            obiekt przechowuje dane o specjalizacji lekarza
+            </summary>
+        </member>
+        <member name="F:ELI.SpecializationVO.specializationCode">
+            <summary>
+            Unikalny kod specjalizacji
+            6 cyfr
+            </summary>
+        </member>
+        <member name="F:ELI.SpecializationVO.specializationName">
+            <summary>
+            Nazwa Specializacji
+            Maksymalnie 50 znaków
+            </summary>
+        </member>
+        <member name="T:ELI.SpecimenCollectionVO">
+            <summary>
+            obiekt przechowuje dane o pobraniu próbek
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.lotNumber">
+            <summary>
+            Numer partii próbek
+            Maksymalnie 20 znaków
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.collectionTime">
+            <summary>
+            Data i godzina pobrania materiału do badań
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.collectedBy">
+            <summary>
+            Osoba pobierająca materiał do badań
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.institution">
+            <summary>
+            Dane placówki pobierającej 
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.dzm">
+            <summary>
+            Dzienna ilość moczu wyrażona w ml
+            1-10000
+            </summary>
+        </member>
+        <member name="F:ELI.SpecimenCollectionVO.weight">
+            <summary>
+            Waga pacjenta wyrażona w kg
+            1-500
+            </summary>
+        </member>
+        <member name="T:ELI.StatusType">
+            <summary>
+            Status dokumentu
+            </summary>
+        </member>
+        <member name="F:ELI.StatusType.NEW">
+            <summary>
+            new
+            </summary>
+        </member>
+        <member name="F:ELI.StatusType.CANCELLED">
+            <summary>
+            canceled
+            </summary>
+        </member>
+    </members>
+</doc>
