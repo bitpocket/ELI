@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPatientWithOrderListBy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="patientIdVO" type="tns:PatientIdVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PatientIdVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:IdType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="IdType">
+        <s:restriction base="s:string">
+          <s:enumeration value="PESEL" />
+          <s:enumeration value="IDENTITY_CARD" />
+          <s:enumeration value="MOTHER_PESEL" />
+          <s:enumeration value="MOTHER_IDENTITY_CARD" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="getPatientWithOrderListByResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPatientWithOrderListByResult" type="tns:PatientWithOrderListVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PatientWithOrderListVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="patient" type="tns:PatientVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="orders" type="tns:ArrayOfOrderVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secondName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="patientIdVO" type="tns:PatientIdVO" />
+          <s:element minOccurs="1" maxOccurs="1" name="birthDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="gender" type="tns:Gender" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fatherName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="tns:AddressVO" />
+          <s:element minOccurs="1" maxOccurs="1" name="hciPrivateKeyId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Gender">
+        <s:restriction base="s:string">
+          <s:enumeration value="M" />
+          <s:enumeration value="K" />
+          <s:enumeration value="N" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="AddressVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codeTeryt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="houseNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apartamentNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderVO" nillable="true" type="tns:OrderVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="contractor" type="tns:ContractorVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="examination" type="tns:ArrayOfExaminationVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="doctor" type="tns:DoctorVO" />
+          <s:element minOccurs="1" maxOccurs="1" name="orderTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="valuableClinicInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="specimenCollection" type="tns:SpecimenCollectionVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContractorVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="regon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="tns:AddressVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="institutionId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExaminationVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExaminationVO" nillable="true" type="tns:ExaminationVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExaminationVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="priorytet" type="tns:PriorytetType" />
+          <s:element minOccurs="0" maxOccurs="1" name="rate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="specimenCollected" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PriorytetType">
+        <s:restriction base="s:string">
+          <s:enumeration value="RUTYNOWE" />
+          <s:enumeration value="CITO" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="DoctorVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secondName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pzw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="specializations" type="tns:ArrayOfSpecializationVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSpecializationVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecializationVO" nillable="true" type="tns:SpecializationVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecializationVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="specializationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="specializationName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecimenCollectionVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lotNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="collectionTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="collectedBy" type="tns:MedicalStaffVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="institution" type="tns:ContractorVO" />
+          <s:element minOccurs="1" maxOccurs="1" name="dzm" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedicalStaffVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secondName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pzw" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ProfessionType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProfessionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DOCTOR" />
+          <s:enumeration value="NURSE" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPatientWithOrderListBySoapIn">
+    <wsdl:part name="parameters" element="tns:getPatientWithOrderListBy" />
+  </wsdl:message>
+  <wsdl:message name="getPatientWithOrderListBySoapOut">
+    <wsdl:part name="parameters" element="tns:getPatientWithOrderListByResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ELIWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatientWithOrderListBy">
+      <wsdl:input message="tns:getPatientWithOrderListBySoapIn" />
+      <wsdl:output message="tns:getPatientWithOrderListBySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ELIWebServiceSoap" type="tns:ELIWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientWithOrderListBy">
+      <soap:operation soapAction="http://tempuri.org/getPatientWithOrderListBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ELIWebServiceSoap12" type="tns:ELIWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPatientWithOrderListBy">
+      <soap12:operation soapAction="http://tempuri.org/getPatientWithOrderListBy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ELIWebService">
+    <wsdl:port name="ELIWebServiceSoap" binding="tns:ELIWebServiceSoap">
+      <soap:address location="http://elitest.azurewebsites.net/ELIWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ELIWebServiceSoap12" binding="tns:ELIWebServiceSoap12">
+      <soap12:address location="http://elitest.azurewebsites.net/ELIWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -99,5 +99,11 @@ namespace ELI
         {
             return orderList.ordersResults.Length.ToString();
         }
+
+        public string HelloWorld()
+        {
+            ServiceReference1.ELIWebServiceSoapClient proxy = new ServiceReference1.ELIWebServiceSoapClient();
+            return proxy.HelloWorld("new");
+        }
     }
 }

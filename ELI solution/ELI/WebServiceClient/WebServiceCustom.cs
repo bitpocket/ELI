@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using System.Xml.XPath;
 
 namespace ELI
@@ -13,7 +14,7 @@ namespace ELI
     /// This class is an alternative when you can't use Service References. It allows you to invoke Web Methods on a given Web Service URL.
     /// Based on the code from http://stackoverflow.com/questions/9482773/web-service-without-adding-a-reference
     /// </summary>
-    public class WebService
+    public class WebServiceCustom
     {
         public string Url { get; private set; }
         public string Method { get; private set; }
@@ -24,17 +25,17 @@ namespace ELI
 
         //private Cursor InitialCursorState;
 
-        public WebService()
+        public WebServiceCustom()
         {
             Url = String.Empty;
             Method = String.Empty;
         }
-        public WebService(string baseUrl)
+        public WebServiceCustom(string baseUrl)
         {
             Url = baseUrl;
             Method = String.Empty;
         }
-        public WebService(string baseUrl, string methodName)
+        public WebServiceCustom(string baseUrl, string methodName)
         {
             Url = baseUrl;
             Method = methodName;
@@ -144,8 +145,20 @@ namespace ELI
                 string postValues = "";
                 foreach (var param in Params)
                 {
-                    if (encode) postValues += string.Format("<{0}>{1}</{0}>", HttpUtility.HtmlEncode(param.Key), HttpUtility.HtmlEncode(param.Value));
-                    else postValues += string.Format("<{0}>{1}</{0}>", param.Key, param.Value);
+                    if (encode)
+                    {
+                        postValues += string.Format(
+                            "<{0}>{1}</{0}>",
+                            HttpUtility.HtmlEncode(param.Key),
+                            HttpUtility.HtmlEncode(SerializeObject(param.Value)));
+                    }
+                    else
+                    {
+                        postValues += string.Format(
+                            "<{0}>{1}</{0}>", 
+                            param.Key,
+                            SerializeObject(param.Value));
+                    }
                 }
 
                 soapStr = string.Format(soapStr, methodName, postValues);
@@ -181,6 +194,17 @@ namespace ELI
         {
             //Cursor.Current = InitialCursorState;
             // feel free to add more instructions to this method
+        }
+
+        public static string SerializeObject(object toSerialize)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+
+            using (StringWriter textWriter = new StringWriter())
+            {
+                xmlSerializer.Serialize(textWriter, toSerialize);
+                return textWriter.ToString();
+            }
         }
 
         #endregion

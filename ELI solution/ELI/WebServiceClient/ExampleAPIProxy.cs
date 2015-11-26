@@ -4,12 +4,12 @@
     {
         private static string Uri = "http://elitest.azurewebsites.net/ELIWebService.asmx";
         //    private static WebService ExampleAPI = new WebService("http://.../example.asmx");    // DEFAULT location of the WebService, containing the WebMethods
-        private static WebService ExampleAPI = new WebService(Uri);    // DEFAULT location of the WebService, containing the WebMethods
+        private static WebServiceCustom ExampleAPI = new WebServiceCustom(Uri);    // DEFAULT location of the WebService, containing the WebMethods
 
 
         public static void ChangeUrl(string webserviceEndpoint)
         {
-            ExampleAPI = new WebService(webserviceEndpoint);
+            ExampleAPI = new WebServiceCustom(webserviceEndpoint);
         }
 
         public static string ExampleWebMethod(string name, int number)
@@ -32,14 +32,35 @@
             ExampleAPI.PreInvoke();
 
             ExampleAPI.AddParameter("param", name);
+
             try
             {
                 ExampleAPI.Invoke("HelloWorld");                // name of the WebMethod to call (Case Sentitive again!)
             }
-
-            finally { ExampleAPI.PosInvoke(); }
+            finally
+            {
+                ExampleAPI.PosInvoke();
+            }
 
             return ExampleAPI.ResultString;                           // you can either return a string or an XML, your choice
         }
+
+        //public static PatientWithOrderListVO getPatientWithOrderListBy(PatientIdVO patientIdVO)
+        //{
+        //    ExampleAPI.PreInvoke();
+
+        //    ExampleAPI.AddParameter("patientIdVO", patientIdVO);
+
+        //    try
+        //    {
+        //        ExampleAPI.Invoke("getPatientWithOrderListBy");                        // name of the WebMethod to call (Case Sentitive again!)
+        //    }
+        //    finally
+        //    {
+        //        ExampleAPI.PosInvoke();
+        //    }
+
+        //    return ExampleAPI.ResultString;                           // you can either return a string or an XML, your choice
+        //}
     }
 }
