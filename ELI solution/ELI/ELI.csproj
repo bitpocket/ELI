@@ -54,7 +54,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\x86\Release\ELI.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <Optimize>true</Optimize>
     <RegisterForComInterop>true</RegisterForComInterop>
     <DebugType>pdbonly</DebugType>
@@ -66,32 +67,37 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressVO.cs" />
-    <Compile Include="ContractorVO.cs" />
-    <Compile Include="DoctorVO.cs" />
-    <Compile Include="ExaminationResultParameterVO.cs" />
-    <Compile Include="ExaminationResultVO.cs" />
-    <Compile Include="ExaminationVO.cs" />
-    <Compile Include="Gender.cs" />
-    <Compile Include="IdType.cs" />
+    <Compile Include="VO\AddressVO.cs" />
+    <Compile Include="VO\ContractorVO.cs" />
+    <Compile Include="VO\DoctorVO.cs" />
+    <Compile Include="VO\ExaminationResultParameterVO.cs" />
+    <Compile Include="VO\ExaminationResultVO.cs" />
+    <Compile Include="VO\ExaminationVO.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\IdType.cs" />
     <Compile Include="ELI.cs" />
-    <Compile Include="MedicalStaffVO.cs" />
-    <Compile Include="OrderResultListVO.cs" />
-    <Compile Include="OrderResultVO.cs" />
-    <Compile Include="OrderVO.cs" />
-    <Compile Include="PatientIdVO.cs" />
-    <Compile Include="PatientVO.cs" />
-    <Compile Include="PatientWithOrderListVO.cs" />
-    <Compile Include="PriorytetType.cs" />
-    <Compile Include="ProfessionType.cs" />
+    <Compile Include="VO\MedicalStaffVO.cs" />
+    <Compile Include="VO\OrderResultListVO.cs" />
+    <Compile Include="VO\OrderResultVO.cs" />
+    <Compile Include="VO\OrderVO.cs" />
+    <Compile Include="VO\PatientIdVO.cs" />
+    <Compile Include="VO\PatientVO.cs" />
+    <Compile Include="VO\PatientWithOrderListVO.cs" />
+    <Compile Include="Enums\PriorytetType.cs" />
+    <Compile Include="Enums\ProfessionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultDocumentVO.cs" />
-    <Compile Include="SpecializationVO.cs" />
-    <Compile Include="SpecimenCollectionVO.cs" />
-    <Compile Include="StatusType.cs" />
+    <Compile Include="VO\ResultDocumentVO.cs" />
+    <Compile Include="VO\SpecializationVO.cs" />
+    <Compile Include="VO\SpecimenCollectionVO.cs" />
+    <Compile Include="Enums\StatusType.cs" />
+    <Compile Include="WebServiceClient\ExampleAPIProxy.cs" />
+    <Compile Include="WebServiceClient\Utils.cs" />
+    <Compile Include="WebServiceClient\WebService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

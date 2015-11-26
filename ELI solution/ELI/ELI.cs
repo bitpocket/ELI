@@ -3,9 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace ELI
 {
-    /// <summary>
-    /// WebServiceShell
-    /// </summary>
     [ClassInterface(ClassInterfaceType.AutoDual)]
     [ProgId("ELI.WebServiceShell")]
     public class WebServiceShell
